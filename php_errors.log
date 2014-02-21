@@ -1,0 +1,252 @@
+[21-Feb-2014 07:41:19 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 14
+[21-Feb-2014 07:41:19 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 07:41:19 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 07:41:19 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 07:41:19 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:41:19 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:41:19 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:13
+[21-Feb-2014 07:54:05 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 14
+[21-Feb-2014 07:54:05 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 07:54:05 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 07:54:05 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 07:54:05 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:54:05 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:54:05 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:13
+[21-Feb-2014 07:56:12 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 14
+[21-Feb-2014 07:56:12 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 07:56:12 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 07:56:12 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 07:56:12 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:56:12 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:56:12 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:13
+[21-Feb-2014 07:56:18 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 14
+[21-Feb-2014 07:56:18 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 07:56:18 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 07:56:18 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 07:56:18 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:56:18 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:56:18 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:13
+[21-Feb-2014 07:59:51 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 14
+[21-Feb-2014 07:59:51 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 07:59:51 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 07:59:51 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 07:59:51 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:59:51 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 07:59:51 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 08:02:00 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 16
+[21-Feb-2014 08:02:00 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:02:00 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:02:00 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:02:00 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:02:00 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:02:00 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 08:07:13 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 08:07:13 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:07:13 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:07:13 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:07:13 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:07:13 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:07:13 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 08:10:29 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 08:10:29 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:10:29 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:10:29 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:10:29 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:10:29 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:10:29 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 08:13:35 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 08:13:35 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:13:35 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:13:35 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:13:35 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:13:35 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:13:35 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 08:16:03 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/route_model.php on line 15
+[21-Feb-2014 08:16:03 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:16:03 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:16:03 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:16:03 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:16:03 America/Los_Angeles] PHP   4. Search->newroute() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:16:03 America/Los_Angeles] PHP   5. Route_model->addNewRoute() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/search.php:34
+[21-Feb-2014 08:16:22 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/route_model.php on line 15
+[21-Feb-2014 08:16:22 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:16:22 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:16:22 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:16:22 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:16:22 America/Los_Angeles] PHP   4. Search->newroute() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:16:22 America/Los_Angeles] PHP   5. Route_model->addNewRoute() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/search.php:34
+[21-Feb-2014 08:20:41 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 08:20:41 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:20:41 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:20:41 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:20:41 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:20:41 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:20:41 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 08:21:30 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 08:21:30 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:21:30 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:21:30 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:21:30 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:21:30 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:21:30 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 08:23:47 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 08:23:47 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 08:23:47 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 08:23:47 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 08:23:47 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:23:47 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 08:23:47 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 14:33:14 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 14:33:14 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:33:14 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:33:14 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:33:14 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:33:14 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:33:14 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 14:35:34 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 14:35:34 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:35:34 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:35:34 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:35:34 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:35:34 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:35:34 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 14:48:57 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 14:48:57 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:48:57 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:48:57 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:48:57 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:48:57 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:48:57 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 14:50:02 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 12
+[21-Feb-2014 14:50:02 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:50:02 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:50:02 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:50:02 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:50:02 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:50:02 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 14:51:24 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php on line 21
+[21-Feb-2014 14:51:24 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:51:24 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:51:24 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:51:24 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:51:24 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:51:31 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php on line 21
+[21-Feb-2014 14:51:31 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:51:31 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:51:31 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:51:31 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:51:31 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:52:17 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php on line 21
+[21-Feb-2014 14:52:17 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:52:17 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:52:17 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:52:17 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:52:17 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:52:22 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php on line 21
+[21-Feb-2014 14:52:22 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:52:22 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:52:22 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:52:22 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:52:22 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:53:56 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php on line 21
+[21-Feb-2014 14:53:56 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:53:56 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:53:56 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:53:56 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:53:56 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:55:04 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php on line 20
+[21-Feb-2014 14:55:04 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 14:55:04 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 14:55:04 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 14:55:04 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 14:55:04 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:00:36 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:00:36 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:00:36 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:00:36 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:00:36 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:00:36 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:00:36 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:14
+[21-Feb-2014 15:01:23 America/Los_Angeles] PHP Fatal error:  Call to a member function addComment() on a non-object in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php on line 14
+[21-Feb-2014 15:01:23 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:01:23 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:01:23 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:01:23 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:01:23 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:02:47 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:02:47 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:02:47 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:02:47 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:02:47 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:02:47 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:02:47 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:03:23 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:03:23 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:03:23 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:03:23 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:03:23 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:03:23 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:03:23 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:08:16 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:08:16 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:08:16 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:08:16 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:08:16 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:08:16 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:08:16 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:08:46 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:08:46 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:08:46 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:08:46 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:08:46 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:08:46 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:08:46 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:10:00 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 18
+[21-Feb-2014 15:10:00 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:10:00 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:10:00 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:10:00 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:10:00 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:10:00 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:10:23 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 18
+[21-Feb-2014 15:10:23 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:10:23 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:10:23 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:10:23 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:10:23 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:10:23 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:11:21 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 18
+[21-Feb-2014 15:11:21 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:11:21 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:11:21 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:11:21 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:11:21 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:11:21 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:12:20 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:12:20 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:12:20 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:12:20 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:12:20 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:12:20 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:12:20 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:12:29 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:12:29 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:12:29 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:12:29 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:12:29 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:12:29 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:12:29 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:13:16 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 18
+[21-Feb-2014 15:13:16 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:13:16 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:13:16 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:13:16 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:13:16 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:13:16 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[21-Feb-2014 15:18:30 America/Los_Angeles] PHP Fatal error:  Call to undefined function mdate() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/models/comments_model.php on line 13
+[21-Feb-2014 15:18:30 America/Los_Angeles] PHP Stack trace:
+[21-Feb-2014 15:18:30 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[21-Feb-2014 15:18:30 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[21-Feb-2014 15:18:30 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:18:30 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[21-Feb-2014 15:18:30 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
