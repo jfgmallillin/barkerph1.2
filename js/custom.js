@@ -70,6 +70,24 @@ function ajaxComments(url,from,to,start,end){
         });
     }
      
+function getRoute(sug_id){
+    $.ajax({
+        type: "POST",
+        url: "findaway/route/",
+        data: {sug_id:sug_id},
+        success: function(result){
+            try{
+                var routes = JSON.parse(result);
+                for(var i in routes){
+                    
+                }
+            }catch(err){
+                
+            }
+        }
+    });
+}
+
 function getComments(sug_id){
     $.ajax({
         type: "POST",
@@ -147,7 +165,7 @@ $(function() {
         var from = $("#from").val();
         var to = $("#to").val();
 
-        ajaxComments("findaway/route/",from,to,0,4);
+        ajaxComments("findaway/suggestions/",from,to,0,4);
 //        ajaxPaging(from,to);
     });
     $(document).on('keypress','.newcomment',function(e) {

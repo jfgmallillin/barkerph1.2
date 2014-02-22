@@ -38,7 +38,7 @@ class Findaway extends CI_Controller {
                         if($st == $start and $en == $end){
                             $paging[] = array('VALUE' =>   $i);
                         }else{
-                            $paging[] = array('VALUE' => "<span class='page' onclick=\"ajaxComments('findaway/route/','".$from."','".$to."',".$st.",".$en.");\"  style='cursor:pointer'><u>" . $i . "</u></span>");
+                            $paging[] = array('VALUE' => "<span class='page' onclick=\"ajaxComments('findaway/suggestions/','".$from."','".$to."',".$st.",".$en.");\"  style='cursor:pointer'><u>" . $i . "</u></span>");
                         }
                         $st += 4;
                         $en += 5;
@@ -49,8 +49,15 @@ class Findaway extends CI_Controller {
         }
         return $paging;
     }
-
-    public function route() {
+    
+    public function route(){
+        $this->load->model("transpomode_model");
+        $this->load->model("commutedet_model");
+        $transpo = $this->transpomode_model->getTranspoModes();
+        $commdet = $this->commutedet_model->getCommuteDetail();
+        return json_encode($commdet);
+    }
+    public function suggestions() {
         $this->load->model('locref_model');
         $this->load->model('route_model');
         $this->load->model('suggestion_model');

@@ -24,3 +24,8 @@ ERROR - 2014-02-21 15:33:57 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2014-02-21 15:34:26 --> 5 final final reply! "jack"
 ERROR - 2014-02-21 15:40:43 --> getSuggestions() -> SELECT * FROM SUGGESTION WHERE ROUTE_ID = 1 ORDER BY RATING_AVE DESC, RATING_COUNT DESC, DATE_CREATED DESC LIMIT 4,9
 ERROR - 2014-02-21 15:40:58 --> 2 yeah!! "jack"
+ERROR - 2014-02-21 17:19:19 --> 404 Page Not Found --> findaway/route
+ERROR - 2014-02-21 17:19:20 --> 404 Page Not Found --> findaway/route
+ERROR - 2014-02-21 17:19:21 --> 404 Page Not Found --> findaway/route
+ERROR - 2014-02-21 17:19:21 --> 404 Page Not Found --> findaway/route
+ERROR - 2014-02-21 17:19:36 --> getSuggestions() -> SELECT * FROM SUGGESTION WHERE ROUTE_ID = 1 ORDER BY RATING_AVE DESC, RATING_COUNT DESC, DATE_CREATED DESC LIMIT 0,4
