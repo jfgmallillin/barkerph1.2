@@ -34,6 +34,7 @@ function ajaxComments(url,from,to,start,end){
                             var commentdiv = "";
                             if(!firstcommset){
                                 getComments(row['ID']);
+                                getRoute(row['ID']);
                                 commentdiv = "<div id='" + row['ID'] + "' class='commentlist" + row['ID'] + " activecomment'>";
                                 firstcommset = true;
                             }else{
@@ -66,6 +67,7 @@ function ajaxComments(url,from,to,start,end){
                 $('#' + id).addClass('activecomment');
                 $('#' + id).hide();
                 getComments(id);
+                getRoute(id)
             });
         });
     }
@@ -76,16 +78,56 @@ function getRoute(sug_id){
         url: "findaway/route/",
         data: {sug_id:sug_id},
         success: function(result){
+            var routestring = "";
+            var owner = false;
             try{
                 var routes = JSON.parse(result);
+                owner = routes['SUG_OWNER'];
                 for(var i in routes){
-                    
+                    var route = routes[i];
+                    if(i != 'SUG_OWNER'){
+                        routestring += "<div class='routedetail'>";
+                        routestring += "<div class='transpomode' style='color:" + route['TRANSPOMODE_COLOR'] + "'>" + 
+                                route['TRANSPOMODE_NAME'] + "</div>";
+                        routestring += "<div class='transpomode_desc'>" + 
+                                route['TRANSPOMODE_DESC'] + "</div>";
+                        routestring += "<div class='travel_desc'>" + 
+                                route['TRAVEL_DESC'] + "</div>";
+                        routestring += "<div class='fare'>" + 
+                                route['FARE'] + "</div>";
+                        routestring += "<div class='ETA'>" + 
+                                route['ETA'] + "</div>";
+                        routestring += "</div>";
+                    }
                 }
             }catch(err){
                 
             }
+            var from = $('#from').val();
+            var to = $('#to').val();
+            routestring = "<div class='fromto'> From: " + from + "</div>" + routestring;
+            routestring = "<div class='routedetails'>" + routestring + "</div><div clas='fromto'> To: " + to + "</div>"; 
+            var editroute = "";
+            if(owner){
+                editroute = "<div id='editrouteauth'><a class='editroute' href='#'>Edit</a></div>";
+            }else{
+                editroute = "<div id='editrouteauth'>You can not edit this!</div>";
+            }
+            $('#routeOutput').html(routestring + editroute);
         }
-    });
+    }).done(function() {
+            $("a.editroute").on('click',function(event){
+                event.preventDefault();
+//                $('.activecomment').slideUp();
+//                $('.activecomment').html('');
+//                $('.activecomment').removeClass('activecomment');
+//                var id = $(this).attr('href');
+//                $('#' + id).addClass('activecomment');
+//                $('#' + id).hide();
+//                getComments(id);
+//                getRoute(id)
+            });
+        });
 }
 
 function getComments(sug_id){
@@ -108,7 +150,7 @@ function getComments(sug_id){
                 }
                 commentstring +="</div>";
                 if(comments['status']['LOGGED_IN']){
-                    commentstring += "<textarea class='text-holder newcomment' placeholder='Write a comment..' ></textarea>";
+                    commentstring += "<textarea class='text-holder newcomment' placeholder='Write a comment..' ></textarea><div id='charleft'></div>";
                 }else{
                     commentstring += "<p>No you can't post a comment. <a href='user/'>Login</a> first</p>";
                 }
@@ -116,7 +158,7 @@ function getComments(sug_id){
             }catch(err){
                 commentstring +="</div>";
                 if(comments['status']['LOGGED_IN']){
-                    commentstring += "<textarea class='text-holder newcomment' placeholder='Write a comment..' ></textarea>";
+                    commentstring += "<textarea class='text-holder newcomment' placeholder='Write a comment..' ></textarea><div id='charleft'></div>";
                 }else{
                     commentstring += "<p>No you can't post a comment. <a href='user/'>Login</a> first</p>";
                 }
@@ -124,7 +166,7 @@ function getComments(sug_id){
             }
             $('#' + sug_id).html(commentstring);
             $('#' + sug_id).slideDown();
-
+            $(".newcomment").limiter(100, $('#charleft'));
         }
     });
     
@@ -168,6 +210,16 @@ $(function() {
         ajaxComments("findaway/suggestions/",from,to,0,4);
 //        ajaxPaging(from,to);
     });
+     $(function() {
+        $( "#dialog-message" ).dialog({
+            modal: true,
+            buttons: {
+                Ok: function() {
+                    $( this ).dialog( "close" );
+                }
+            }
+        });
+    });
     $(document).on('keypress','.newcomment',function(e) {
 		if(e.which == 13) {
 			var msg = $(this).val();
@@ -205,3 +257,22 @@ $(function() {
 		}
 	});
 });
+
+(function($) {
+    $.fn.extend( {
+        limiter: function(limit, elem) {
+            $(this).on("keyup focus", function() {
+                setCount(this, elem);
+            });
+            function setCount(src, elem) {
+                var chars = src.value.length;
+                if (chars > limit) {
+                    src.value = src.value.substr(0, limit);
+                    chars = limit;
+                }
+                elem.html( limit - chars );
+            }
+            setCount($(this)[0], elem);
+        }
+    });
+})(jQuery);

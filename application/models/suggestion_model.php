@@ -37,6 +37,19 @@
             return $query = $this->db->query($querystring);
         }
         
+        public function getUserIdForSuggestion($sug_id){
+            $this->db->where('ID',$sug_id);
+            $query =  $this->db->get('SUGGESTION');
+            if ($query->num_rows() > 0)
+            {
+                foreach ($query->result() as $row){
+                    return ($row->ID);
+                }
+            }else{
+                return -1;
+            }
+        }
+        
         private function _getNextId() { 
             $this->db->select_max('ID','IDMAX');
             $query=$this->db->get('SUGGESTION');

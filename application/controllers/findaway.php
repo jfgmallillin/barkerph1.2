@@ -30,15 +30,19 @@ class Findaway extends CI_Controller {
                     $total = $row->TOTAL;
                 }
                 if($total > 0){
+                    $pageof = "";
                     $ctr = $total / 5;
                     $i = 1;
                     $st = 0;
                     $en = 4;
                     while($i <= ($ctr + 1)){
                         if($st == $start and $en == $end){
-                            $paging[] = array('VALUE' =>   $i);
+                            $paging[$i] = array('VALUE' =>   $i);
+                            $ofctr = intval(1 + $ctr);
+                            $pageof = "" . $i . " of " . $ofctr . " | ";
+                            $paging['pageof'] = array('VALUE' => $pageof);
                         }else{
-                            $paging[] = array('VALUE' => "<span class='page' onclick=\"ajaxComments('findaway/suggestions/','".$from."','".$to."',".$st.",".$en.");\"  style='cursor:pointer'><u>" . $i . "</u></span>");
+                            $paging[$i] = array('VALUE' => "<span class='page' onclick=\"ajaxComments('findaway/suggestions/','".$from."','".$to."',".$st.",".$en.");\"  style='cursor:pointer'><u>" . $i . "</u></span>");
                         }
                         $st += 4;
                         $en += 5;
@@ -51,11 +55,16 @@ class Findaway extends CI_Controller {
     }
     
     public function route(){
-        $this->load->model("transpomode_model");
-        $this->load->model("commutedet_model");
-        $transpo = $this->transpomode_model->getTranspoModes();
-        $commdet = $this->commutedet_model->getCommuteDetail();
-        return json_encode($commdet);
+//        $this->load->model("transpomode_model");
+//        $this->load->model("commutedet_model");
+//        $transpo = $this->transpomode_model->getTranspoModes();
+//        $commdet = $this->commutedet_model->getCommuteDetail();
+        $this->load->model('routeview_model');
+        $this->load->model('suggestion_model');
+        $commdet = $this->routeview_model->getCommuteDetailView();
+        $userid = $this->suggestion_model->getUserIdForSuggestion($this->input->post('sug_id'));
+        $commdet['SUG_OWNER'] = ($userid == ($this->session->userdata('user_id'))) ? true:false;
+        echo json_encode($commdet);
     }
     public function suggestions() {
         $this->load->model('locref_model');
@@ -122,10 +131,15 @@ class Findaway extends CI_Controller {
                         }
                     }
                 }
+                $data['PAGING0'] = $paging['pageof'];
                 $i = 1;
                 foreach ($paging as $page){
-                    $data['PAGING' . $i] = $page;
-                    $i++;
+//                    echo "VALUE: " . $page['VALUE'];
+                    if(strpos($page['VALUE'],'of') === false){
+//                        echo "VALUE2: " . $page['VALUE'];
+                        $data['PAGING' . $i] = $page;
+                        $i++;
+                    }
                 }
                 $data['status'] = array('LOGGED_IN' => $this->session->userdata('logged_in')); 
                 echo json_encode($data);
