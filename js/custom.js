@@ -71,7 +71,26 @@ function ajaxComments(url,from,to,start,end){
             });
         });
     }
-     
+
+function getAddRoute(result){
+    var addroutestring = "";
+    try{
+    var modes = JSON.parse(result);
+    var modeoptions = "";
+    for(var i in modes){
+        var mode = modes[i];
+        modeoptions += "<option value='" + mode['ID'] + "'>" + mode['NAME'] + "</option>";
+    }
+    addroutestring += "<select id='newmode'>" + modeoptions + "</select>";
+    addroutestring += "<textarea id='newmoderemark' placeholder='Write description for the mode of transportation'></textarea>";
+    addroutestring += "<textarea id='newtravelremark' placeholder='Write description during travel or where to alight'></textarea>";
+    addroutestring += "<input type='text' id='newfare'/>";
+    addroutestring += "<input type='text' id='neweta'/>";
+    addroutestring += "<span class='newroute'>Add</span>";
+    }catch(err){alert(err);}
+    return addroutestring;
+}    
+    
 function getRoute(sug_id){
     $.ajax({
         type: "POST",
@@ -79,53 +98,106 @@ function getRoute(sug_id){
         data: {sug_id:sug_id},
         success: function(result){
             var routestring = "";
+            var routeeditstring = "";
             var owner = false;
+            var addRouteString = "";
             try{
                 var routes = JSON.parse(result);
                 owner = routes['SUG_OWNER'];
                 for(var i in routes){
                     var route = routes[i];
-                    if(i != 'SUG_OWNER'){
-                        routestring += "<div class='routedetail'>";
-                        routestring += "<div class='transpomode' style='color:" + route['TRANSPOMODE_COLOR'] + "'>" + 
+                    if(i != 'SUG_OWNER' && i != 'MODES'){
+                        var tempstring = "";
+//                        tempstring += "<div class='routedetail'>";
+                        tempstring += "<div class='transpomode' style='color:" + route['TRANSPOMODE_COLOR'] + "'>" + 
                                 route['TRANSPOMODE_NAME'] + "</div>";
-                        routestring += "<div class='transpomode_desc'>" + 
+                        tempstring += "<div class='transpomode_desc'>" + 
                                 route['TRANSPOMODE_DESC'] + "</div>";
-                        routestring += "<div class='travel_desc'>" + 
+                        tempstring += "<div class='travel_desc'>" + 
                                 route['TRAVEL_DESC'] + "</div>";
-                        routestring += "<div class='fare'>" + 
+                        tempstring += "<div class='fare'>" + 
                                 route['FARE'] + "</div>";
-                        routestring += "<div class='ETA'>" + 
+                        tempstring += "<div class='ETA'>" + 
                                 route['ETA'] + "</div>";
+                        if(owner){
+                            routeeditstring += "<div class='routedetail'>";'    '
+                            routeeditstring += tempstring;
+                            routeeditstring += "<div class='moveupdown'>";
+                            routeeditstring += "<div class='moveup'><span class='moveupbtn'>up</span></div>";
+                            routeeditstring += "<div class='movedown'><span class='movedownbtn'>down</span></div>";
+                            routeeditstring += "</div>";
+                            routeeditstring += "<div class='movedown'><span class='removeroutebtn'>down</span></div>";
+                            routeeditstring += "</div>";
+                        }
+                        routestring += "<div class='routedetail'>";
+                        routestring += tempstring;
                         routestring += "</div>";
                     }
                 }
-            }catch(err){
-                
-            }
+                addRouteString = getAddRoute(routes['MODES']);
+            }catch(err){}
             var from = $('#from').val();
             var to = $('#to').val();
-            routestring = "<div class='fromto'> From: " + from + "</div>" + routestring;
             routestring = "<div class='routedetails'>" + routestring + "</div><div clas='fromto'> To: " + to + "</div>"; 
+            routestring = "<div class='fromto'> From: " + from + "</div>" + routestring;
+            
+            routeeditstring = "<div class='routeeditdetails'>" + routeeditstring + "</div><div clas='fromto'> To: " + to + "</div>"; 
+            routeeditstring = "<div class='fromto'> From: " + from + "</div>" + routeeditstring;
+            
             var editroute = "";
             if(owner){
-                editroute = "<div id='editrouteauth'><a class='editroute' href='#'>Edit</a></div>";
+                editroute = "<div id='editrouteauth'><a class='editroute' href='#'>Edit</a></div>";                
+                $('#routeEdit').html(routeeditstring + addRouteString);
+                $('#routeEditTemplate').html(routeeditstring + addRouteString);
             }else{
                 editroute = "<div id='editrouteauth'>You can not edit this!</div>";
+                $('#routeEdit').html('');
+                $('#routeEditTemplate').html('');
             }
             $('#routeOutput').html(routestring + editroute);
         }
     }).done(function() {
             $("a.editroute").on('click',function(event){
-                event.preventDefault();
-//                $('.activecomment').slideUp();
-//                $('.activecomment').html('');
-//                $('.activecomment').removeClass('activecomment');
-//                var id = $(this).attr('href');
-//                $('#' + id).addClass('activecomment');
-//                $('#' + id).hide();
-//                getComments(id);
-//                getRoute(id)
+                event.preventDefault(); 
+                $( "#routeEdit" ).dialog( "open" );
+            });
+            $(".moveupbtn").button({
+                icons: {
+                    primary: "ui-icon-carat-1-n",
+                },
+                text: false
+            });
+            $(".movedownbtn").button({
+                icons: {
+                    primary: "ui-icon-carat-1-s",
+                },
+                text: false
+            });
+            $(".removeroutebtn").button({
+                icons: {
+                    primary: "ui-icon-close",
+                },
+                text: false
+            });
+            $(".newroute").button({
+                icons: {
+                    primary: "ui-icon-cicle-plus",
+                },
+                text: false
+            });
+            $("#routeEdit").dialog({
+                autoOpen: false,
+                modal: true,
+                buttons: {
+                    save: function(){
+                        alert("ok I'll save this.");
+                        $(this).dialog("close");
+                    },
+                    cancel: function() {
+                        $('#routeEdit').html($('#routeEditTemplate').html());
+                        $( this ).dialog( "close" );
+                    }
+                }
             });
         });
 }
@@ -180,14 +252,12 @@ $(function() {
     function extractLast(term) {
         return split(term).pop();
     }
-    $(".search")
-            .bind("keydown", function(event) {
+    $(".search").bind("keydown", function(event) {
         if (event.keyCode === $.ui.keyCode.TAB &&
                 $(this).data("ui-autocomplete").menu.active) {
             event.preventDefault();
         }
-    })
-            .autocomplete({
+    }).autocomplete({
         source: function(request, response) {
             $.getJSON("search/", {
                 term: extractLast(request.term)
@@ -200,7 +270,11 @@ $(function() {
         },
         focus: function() {
             return false;
-        }
+        },
+        messages: {
+            noResults: '',
+            results: function() {}
+         }
     });
 
     $("#FindRoute").click(function() {
@@ -210,15 +284,37 @@ $(function() {
         ajaxComments("findaway/suggestions/",from,to,0,4);
 //        ajaxPaging(from,to);
     });
-     $(function() {
-        $( "#dialog-message" ).dialog({
-            modal: true,
-            buttons: {
-                Ok: function() {
-                    $( this ).dialog( "close" );
+    $(document).on('click','.movedownbtn',function(event){
+                var source = $(this).parent().parent().parent();
+                var nextElement = source.next();
+                var sourcehtml = source.html();
+                if(nextElement.html()){
+                    nextElement.after("<div class='routedetail'>" + sourcehtml + "</div>");
+                    source.remove();
+                }else{
+                    alert('This is the last element already!');
                 }
-            }
-        });
+//                alert($(this).parent().parent().parent().next().html());
+//                var content = $(this).parent().parent().parent().prev().html();
+            });
+    $(document).on('click','.moveupbtn',function(event){
+                var source = $(this).parent().parent().parent();
+                var previousElement = source.prev();
+                var sourcehtml = source.html();
+                if(previousElement.html()){
+                    previousElement.before("<div class='routedetail'>" + sourcehtml + "</div>");
+                    source.remove();
+                }else{
+                    alert('This is the first element already!');
+                }
+//                alert($(this).parent().parent().parent().attr('class'));
+//                var content = $(this).parent().parent().parent().prev().html();
+            });
+    $(document).on('click','.removeroutebtn',function(event){
+                $(this).parent().parent().remove();
+            });
+    $(document).on('click','.newroute',function(event){
+        alert('add new route');
     });
     $(document).on('keypress','.newcomment',function(e) {
 		if(e.which == 13) {

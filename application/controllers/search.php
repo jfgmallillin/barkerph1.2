@@ -12,13 +12,13 @@ class Search extends CI_Controller {
     
     public function index() {
         $keyword = $this->input->get('term');
-        $data['response'] = 'false'; //Set default response
+//        $data['response'] = 'false'; //Set default response
         $this->load->model('locref_model');
         $query = $this->locref_model->lookup($keyword); //Search DB
         if ($query->num_rows() > 0) { 
             $data = array();
             foreach ($query->result() as $row) {
-                $data[] = array('label' => $row->NAME, 'value' => $row->NAME, 'id' => $row->ID . '_' . $row->ID_VARIANT); //Add a row to array
+                $data[] = array('label' => $row->NAME, 'value' => $row->NAME); //Add a row to array
             }
         }else{
             $data = array();

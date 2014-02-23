@@ -53,17 +53,19 @@ class Findaway extends CI_Controller {
         }
         return $paging;
     }
+     
     
     public function route(){
-//        $this->load->model("transpomode_model");
 //        $this->load->model("commutedet_model");
-//        $transpo = $this->transpomode_model->getTranspoModes();
 //        $commdet = $this->commutedet_model->getCommuteDetail();
+        $this->load->model("transpomode_model");
         $this->load->model('routeview_model');
         $this->load->model('suggestion_model');
         $commdet = $this->routeview_model->getCommuteDetailView();
+        $transpo = $this->transpomode_model->getTranspoModes();
         $userid = $this->suggestion_model->getUserIdForSuggestion($this->input->post('sug_id'));
         $commdet['SUG_OWNER'] = ($userid == ($this->session->userdata('user_id'))) ? true:false;
+        $commdet['MODES'] = json_encode($transpo);
         echo json_encode($commdet);
     }
     public function suggestions() {

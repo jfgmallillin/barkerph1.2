@@ -14,3 +14,9 @@
 <div id="routeOutput">
     
 </div>
+<div id="routeEdit" title='Edit Route'>
+    
+</div>
+<div id='routeEditTemplate' style='display: none;'>
+    
+</div>

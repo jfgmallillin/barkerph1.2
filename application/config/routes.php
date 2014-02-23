@@ -39,6 +39,7 @@
 */
 
 $route['default_controller'] = "welcome";
+$route['images/*'] = $this->config->item('base_url') . "/images/$1";
 $route['404_override'] = '';
 
 
