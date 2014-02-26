@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Feb 21, 2014 at 06:05 PM
+-- Generation Time: Feb 24, 2014 at 07:05 AM
 -- Server version: 5.5.28
 -- PHP Version: 5.4.9
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`ID`),
   KEY `SUG_ID` (`SUG_ID`,`USER_ID`),
   KEY `USER_ID` (`USER_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `comments`
@@ -74,7 +74,8 @@ INSERT INTO `comments` (`ID`, `SUG_ID`, `USER_ID`, `DATE_CREATED`, `TIME_CREATED
 (9, 4, 1, '2014-02-21', '00:00:00', 'eto naman masasabi ko'),
 (10, 6, 1, '2014-02-21', '00:00:00', 'test\n'),
 (11, 7, 1, '2014-02-21', '03:23:00', 'test'),
-(12, 2, 1, '2014-02-21', '03:40:00', 'yeah!!');
+(12, 2, 1, '2014-02-21', '03:40:00', 'yeah!!'),
+(13, 5, 1, '2014-02-22', '03:15:00', 'ajfaajfaajfaajfaajfaajfaajfaajfaajfaajfaajfaajfaaj');
 
 -- --------------------------------------------------------
 
@@ -99,8 +100,9 @@ CREATE TABLE IF NOT EXISTS `commute_det` (
 --
 
 INSERT INTO `commute_det` (`SUG_ID`, `COMMUTE_SEQ`, `TRANSPOMODE_ID`, `TRANSPOMODE_DESC`, `TRAVEL_DESC`, `FARE`, `ETA`) VALUES
-(5, 1, 11, 'Sakay ka', 'hintay ka', 0, 0),
-(5, 2, 12, 'sakay ka ulit', 'hintay ka ulit', 0, 0);
+(1, 1, 11, 'Sakay ka', 'hintay ka', 0, 0),
+(1, 2, 12, 'sakay ka ulit', 'hintay ka ulit', 0, 0),
+(1, 3, 13, 'sakay ka ulit ulit', 'hintay ka ulit ulit', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -269,12 +271,12 @@ CREATE TABLE IF NOT EXISTS `transpo_mode` (
 --
 
 INSERT INTO `transpo_mode` (`ID`, `NAME`, `COLOR`) VALUES
-(0, 'WALK', ''),
-(11, 'BUS', ''),
-(12, 'JEEP', ''),
-(13, 'TAXI', ''),
-(14, 'TRICYCLE', ''),
-(15, 'PEDICAB', '');
+(0, 'WALK', '#00FF00'),
+(11, 'BUS', '#FF0000'),
+(12, 'JEEP', '#0000FF'),
+(13, 'TAXI', '#FFFF00'),
+(14, 'TRICYCLE', '#00FFFF'),
+(15, 'PEDICAB', '#FF00FF');
 
 -- --------------------------------------------------------
 
@@ -351,8 +353,8 @@ ALTER TABLE `comments`
 -- Constraints for table `commute_det`
 --
 ALTER TABLE `commute_det`
-  ADD CONSTRAINT `commute_det_ibfk_2` FOREIGN KEY (`TRANSPOMODE_ID`) REFERENCES `transpo_mode` (`ID`),
-  ADD CONSTRAINT `commute_det_ibfk_1` FOREIGN KEY (`SUG_ID`) REFERENCES `suggestion` (`ID`);
+  ADD CONSTRAINT `commute_det_ibfk_1` FOREIGN KEY (`SUG_ID`) REFERENCES `suggestion` (`ID`),
+  ADD CONSTRAINT `commute_det_ibfk_2` FOREIGN KEY (`TRANSPOMODE_ID`) REFERENCES `transpo_mode` (`ID`);
 
 --
 -- Constraints for table `loc_suggestion`
@@ -391,4 +393,3 @@ ALTER TABLE `topics`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

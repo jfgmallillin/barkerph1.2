@@ -158,3 +158,17 @@ clear:both;
     position: absolute;
     width: 1px;
 }*/
+
+.routedetail{   
+    background-color: #FFC0CB;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.comment_cont{
+    background-color: #c5ddfc;
+    border: 2px solid;
+    border-radius: 25px;
+    padding: 10px;
+}

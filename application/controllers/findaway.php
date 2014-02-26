@@ -203,7 +203,16 @@ class Findaway extends CI_Controller {
             echo json_encode($commentlist);
         }
     }
-
+    
+    public function update(){
+        $sug_id = $this->input->post('sug_id');
+        $datajson = $this->input->post('newroutes');
+//        $dataarr = json_decode($datajson);
+        
+        foreach ($datajson as $data){
+            echo $data['modeid'] . "<br/>";
+        }
+    }
 }
 
 ?>

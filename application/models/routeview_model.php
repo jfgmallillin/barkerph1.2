@@ -23,6 +23,7 @@
                         'TRAVEL_DESC'       =>  $detail->TRAVEL_DESC,
                         'FARE'              =>  $detail->FARE,
                         'ETA'               =>  $detail->ETA,
+                        'TRANSPOMODE_ID'    =>  $detail->ID,
                         'TRANSPOMODE_NAME'  =>  $detail->NAME,
                         'TRANSPOMODE_COLOR' =>  $detail->COLOR
                     );
