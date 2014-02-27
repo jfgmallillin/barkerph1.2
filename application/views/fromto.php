@@ -14,6 +14,9 @@
 <div id="routeOutput">
     
 </div>
+<div id="editauth">
+    
+</div>
 <div id="routeEdit" title='Edit Route'>
     
 </div>

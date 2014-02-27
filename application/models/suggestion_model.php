@@ -30,6 +30,11 @@
             return $query = $this->db->query("SELECT COUNT(*) AS TOTAL FROM SUGGESTION WHERE ROUTE_ID = " . $routeid);
         }
         
+        public function getRouteUser($routeid){
+            $userid = $this->session->userdata('user_id');
+            return $query = $this->db->query("SELECT * FROM SUGGESTION WHERE ROUTE_ID = " . $routeid . " AND USER_ID = " . $userid);
+        }
+        
         public function getSuggestions($routeid, $start,$end){
             $querystring = "SELECT * FROM SUGGESTION WHERE ROUTE_ID = " . $routeid . 
                     " ORDER BY RATING_AVE DESC, RATING_COUNT DESC, DATE_CREATED DESC LIMIT " . $start . "," . $end;

@@ -17,32 +17,35 @@ class Findaway extends CI_Controller {
         $this->load->view('fromto');
         $this->load->view('footer_view');
     }
-    
-    public function paging($routeid,$from,$to,$start,$end) {
+
+    public function paging($routeid, $from, $to, $start, $end) {
         $this->load->model('locref_model');
         $this->load->model('route_model');
         $total = 0;
         $paging = array();
         if ($routeid != -1) {
             $query = $this->suggestion_model->getSuggestionCount($routeid);
-            if($query->num_rows() > 0){
-                foreach($query->result() as $row){
+            if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
                     $total = $row->TOTAL;
                 }
-                if($total > 0){
+                if ($total > 0) {
                     $pageof = "";
                     $ctr = $total / 5;
                     $i = 1;
                     $st = 0;
                     $en = 4;
-                    while($i <= ($ctr + 1)){
-                        if($st == $start and $en == $end){
-                            $paging[$i] = array('VALUE' =>   $i);
+                    log_message('ERROR','eto: ' . $routeid . ' ' . $from . ' ' . $to . ' ' . $start . ' ' . $end . ' ' .$ctr . ' ');
+                    while ($i <= ($ctr + 1)) {
+                        if ($st == $start and $en == $end) {
+                            $paging[$i] = array('VALUE' => $i, 'ID' => -1);
                             $ofctr = intval(1 + $ctr);
-                            $pageof = "" . $i . " of " . $ofctr . " | ";
-                            $paging['pageof'] = array('VALUE' => $pageof);
-                        }else{
-                            $paging[$i] = array('VALUE' => "<span class='page' onclick=\"ajaxComments('findaway/suggestions/','".$from."','".$to."',".$st.",".$en.");\"  style='cursor:pointer'><u>" . $i . "</u></span>");
+                            $pageof = "" . $i . " of " . $ofctr;
+                            $paging['pageof'] = array('VALUE' => $pageof,'ID' => -1);
+                            log_message('ERROR','eto1');
+                        } else {
+                            $paging[$i] = array('VALUE' => "ajaxComments('" . $from . "','" . $to . "'," . $st . "," . $en . ")",'ID' => $i );
+                            log_message('ERROR','eto2');
                         }
                         $st += 4;
                         $en += 5;
@@ -53,9 +56,8 @@ class Findaway extends CI_Controller {
         }
         return $paging;
     }
-     
-    
-    public function route(){
+
+    public function route() {
 //        $this->load->model("commutedet_model");
 //        $commdet = $this->commutedet_model->getCommuteDetail();
         $this->load->model("transpomode_model");
@@ -64,10 +66,11 @@ class Findaway extends CI_Controller {
         $commdet = $this->routeview_model->getCommuteDetailView();
         $transpo = $this->transpomode_model->getTranspoModes();
         $userid = $this->suggestion_model->getUserIdForSuggestion($this->input->post('sug_id'));
-        $commdet['SUG_OWNER'] = ($userid == ($this->session->userdata('user_id'))) ? true:false;
+        $commdet['SUG_OWNER'] = ($userid == ($this->session->userdata('user_id'))) ? true : false;
         $commdet['MODES'] = json_encode($transpo);
         echo json_encode($commdet);
     }
+
     public function suggestions() {
         $this->load->model('locref_model');
         $this->load->model('route_model');
@@ -79,109 +82,82 @@ class Findaway extends CI_Controller {
         $start = $this->input->post('start');
         $end = $this->input->post('end');
         $routeid = $this->route_model->getRouteId($from, $to);
-        $paging = $this->paging($routeid,$this->input->post('from'),$this->input->post('to'),$start, $end);
-         
+        $paging = $this->paging($routeid, $this->input->post('from'), $this->input->post('to'), $start, $end);
+
         if ($routeid != -1) {
-            $query = $this->suggestion_model->getSuggestions($routeid,$start,$end);
-            if($query->num_rows() > 0){
+            $query = $this->suggestion_model->getSuggestions($routeid, $start, $end);
+            $hassuggested = $this->suggestion_model->getRouteUser($routeid);
+            $suggest = array();
+            if($hassuggested->num_rows() > 0){
+                //has suggestion
+                $suggest = array('SUGGEST' => false);
+            }else{
+                //no suggestion
+                $suggest = array('SUGGEST' => true);
+            }
+            if ($query->num_rows() > 0) {
                 $data = array();
-//                $commentfirstresult = FALSE;
-                foreach($query->result() as $suggestion){
+                foreach ($query->result() as $suggestion) {
                     $query2 = $this->user_model->getUser($suggestion->USER_ID);
-                    if($query2->num_rows() > 0){
-                        foreach ($query2->result() as $user){
-//                            $commentlist = array();
-//                            if(!$commentfirstresult){
-//                                $comments =  $this->comments_model->getComments($suggestion->ID);
-//                                if($comments->num_rows() > 0){
-//                                    foreach($comments->result() as $comment){
-//                                        $commenter = "";
-//                                        $commenter_q = $this->user_model->getUser($comment->USER_ID);
-//                                        if($commenter_q->num_rows() > 0){
-//                                            foreach ($commenter_q->result() as $commenter_r){
-//                                                $commenter = $commenter_r->username;
-//                                            }
-//                                        }
-//                                        $commentlist[] = array(
-//                                            'USERNAME'      =>  ($commenter == "") ? "anonymous":$commenter,
-//                                            'DATE_CREATED'  =>  $comment->DATE_CREATED,
-//                                            'CONTENT'       =>  $comment->CONTENT
-//                                        );
-//                                    }
-//                                }
-//                                $data[] = array(
-//                                            'ID'            =>  $suggestion->ID,
-//                                            'USERNAME'      =>  $user->username,
-//                                            'TITLE'         =>  $suggestion->TITLE,
-//                                            'DATE_CREATED'  =>  $suggestion->DATE_CREATED,
-//                                            'RATING'        =>  $suggestion->RATING_AVE,
-//                                            'CONTENT'       =>  $suggestion->CONTENT,
-//                                            'COMMENTS'      =>  json_encode($commentlist)
-//                                        );
-//                                $commentfirstresult = TRUE;
-//                            }else{
-                                $data[] = array(
-                                            'ID'            =>  $suggestion->ID,
-                                            'USERNAME'      =>  $user->username,
-                                            'TITLE'         =>  $suggestion->TITLE,
-                                            'DATE_CREATED'  =>  $suggestion->DATE_CREATED,
-                                            'RATING'        =>  $suggestion->RATING_AVE,
-                                            'CONTENT'       =>  $suggestion->CONTENT,
-//                                            'COMMENTS'      =>  ""
-                                        );
-//                            }
+                    if ($query2->num_rows() > 0) {
+                        foreach ($query2->result() as $user) { 
+                            $data[] = array(
+                                'ID' => $suggestion->ID,
+                                'USERNAME' => $user->username,
+                                'TITLE' => $suggestion->TITLE,
+                                'DATE_CREATED' => $suggestion->DATE_CREATED,
+                                'RATING' => $suggestion->RATING_AVE,
+                                'CONTENT' => $suggestion->CONTENT,
+                            );
                         }
                     }
-                }
-                $data['PAGING0'] = $paging['pageof'];
-                $i = 1;
-                foreach ($paging as $page){
-//                    echo "VALUE: " . $page['VALUE'];
-                    if(strpos($page['VALUE'],'of') === false){
-//                        echo "VALUE2: " . $page['VALUE'];
-                        $data['PAGING' . $i] = $page;
-                        $i++;
-                    }
-                }
-                $data['status'] = array('LOGGED_IN' => $this->session->userdata('logged_in')); 
+                } 
+                $data['flag'] = array('FLAG' => 1);
+                $data['paging'] = $paging;
+                $data['status'] = array('LOGGED_IN' => $this->session->userdata('logged_in'));
+                $data['suggest'] = $suggest;
                 echo json_encode($data);
-            }else{
+            } else {
                 //if registered user, create own suggestion for specific route combination
-                echo "<p>No Results Found." . anchor('#','Suggest?');
-            } 
+                $data = array();
+                $data['flag'] = array('FLAG' => 2);
+                $data['output'] = array('OUTPUT' => "No Results Found.");
+                $data['suggest'] = $suggest;
+                echo json_encode($data);
+            }
         } else {
             //suggest new route combination
-            if($from == -1 OR $to == -1){
-                if($from == -1){
-                    echo "<p>Input in the FROM field is not yet in our database. Send as a suggestion? " . anchor('search/suggest_location','yes');
+            if ($from == -1 OR $to == -1) {
+                if ($from == -1) {
+                    echo "<p>Input in the FROM field is not yet in our database. Send as a suggestion? " . anchor('search/suggest_location', 'yes');
                 }
-                if($to == -1){
-                    echo "<p>Input in the TO field is not yet in our database. Send as a suggestion? " . anchor('search/suggest_location','yes');
+                if ($to == -1) {
+                    echo "<p>Input in the TO field is not yet in our database. Send as a suggestion? " . anchor('search/suggest_location', 'yes');
                 }
-            }else{
+            } else {
                 echo "<p>Route combination not yet available. Send as a suggestion? " . anchor('search/newroute/?from=' . $from . '&to=' . $to, 'yes');
             }
         }
     }
-    
-    public function comments(){
+
+    public function comments() {
         $this->load->model('comments_model');
         $this->load->model('user_model');
         $commentlist = array();
-        $comments =  $this->comments_model->getComments($this->input->post('SUG_ID'));
-        if($comments->num_rows() > 0){
-            foreach($comments->result() as $comment){
+        $comments = $this->comments_model->getComments($this->input->post('SUG_ID'));
+        if ($comments->num_rows() > 0) {
+            foreach ($comments->result() as $comment) {
                 $commenter = "";
                 $commenter_q = $this->user_model->getUser($comment->USER_ID);
-                if($commenter_q->num_rows() > 0){
-                    foreach ($commenter_q->result() as $commenter_r){
+                if ($commenter_q->num_rows() > 0) {
+                    foreach ($commenter_q->result() as $commenter_r) {
                         $commenter = $commenter_r->username;
                     }
                 }
                 $commentlist[] = array(
-                    'USERNAME'      =>  ($commenter == "") ? "anonymous":$commenter,
-                    'DATE_CREATED'  =>  $comment->DATE_CREATED,
-                    'CONTENT'       =>  $comment->CONTENT
+                    'USERNAME' => ($commenter == "") ? "anonymous" : $commenter,
+                    'DATE_CREATED' => $comment->DATE_CREATED,
+                    'CONTENT' => $comment->CONTENT
                 );
             }
 //            $commbox = "";
@@ -198,21 +174,24 @@ class Findaway extends CI_Controller {
 //            $commentlist['status'] = array('LOGGED_IN' => $commbox); 
             $commentlist['status'] = array('LOGGED_IN' => $this->session->userdata('logged_in'));
             echo json_encode($commentlist);
-        }else{
+        } else {
             $commentlist['status'] = array('LOGGED_IN' => $this->session->userdata('logged_in'));
             echo json_encode($commentlist);
         }
     }
-    
-    public function update(){
-        $sug_id = $this->input->post('sug_id');
+
+    public function update() {
+        $this->load->model('commutedet_model');
+        $this->commutedet_model->deleteCommuteDetail();
         $datajson = $this->input->post('newroutes');
-//        $dataarr = json_decode($datajson);
-        
-        foreach ($datajson as $data){
-            echo $data['modeid'] . "<br/>";
+
+        foreach ($datajson as $data) { 
+            $this->commutedet_model->addCommuteDetail($data['modeid'],$data['modedesc'],
+                    $data['traveldesc'],$data['fare'],$data['eta']);
         }
+        echo "success";
     }
+
 }
 
 ?>

@@ -2,59 +2,85 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-function ajaxComments(url, from, to, start, end) {
+function ajaxComments(from, to, start, end) {
     var loggedin = false;
     $.ajax({
         type: "POST",
-        url: url,
+        url: "findaway/suggestions/",
         data: {from: from, to: to, start: start, end: end},
         success: function(result) {
             try {
 //                    json format
 //                    $data[] = array('ID','USERNAME','DATE_CREATED','TITLE','RATING','CONTENT','COMMENTS')     
                 var jsonData = JSON.parse(result);
-                var paging = "";
-                var output = "<div id='accordion-resizer' class='ui-widget-content'>" +
-                        "<div id='accordion'>";
-
-                var stat = jsonData['status'];
-                loggedin = stat['LOGGED_IN'];
-                var firstcommset = false;
-                for (var i in jsonData) {
-                    if (i != 'status' && !(i.substring(0, 'PAGING'.length) === 'PAGING')) {
-                        var row = jsonData[i];
-
-                        output += "<h3 class='title'><a href='" + row['ID'] + "' class='suggestion'>" + row['TITLE'] + "</a></h3>" +
-                                "<div>" +
-//                                    "<input id='" + row['ID'] + "' type='text' value='" + row['CONTENT'] + "' style='display:none;'/>" +
-                                "<p class='createdby'>Created by: " + row['USERNAME'] + "</p>" +
-                                "<p class='rating'>Ratings: " + row['RATING'] + "</p>" +
-                                "<p class='createddate'>Date Created: " + row['DATE_CREATED'] + "</p>";
-
-                        var commentdiv = "";
-                        if (!firstcommset) {
-                            getComments(row['ID']);
-                            getRoute(row['ID']);
-                            commentdiv = "<div id='" + row['ID'] + "' class='commentlist" + row['ID'] + " activecomment'>";
-                            firstcommset = true;
-                        } else {
-                            commentdiv = "<div id='" + row['ID'] + "' class='commentlist" + row['ID'] + "' style='display:none;'>";
+                
+                var flagJSON = jsonData['flag'];
+                var flag = flagJSON['FLAG'];
+                
+                if(flag == 1){
+                    var output = "<div id='accordion-resizer' class='ui-widget-content'>" +
+                            "<div id='accordion'>";
+                    var stat = jsonData['status'];
+                    loggedin = stat['LOGGED_IN'];
+                    var pages = jsonData['paging'];
+                    var paging = "<span>" + pages['pageof']['VALUE'] + " | </span>";
+                    for (var i in pages){
+                        if(i != 'pageof'){
+                            var value = pages[i]['VALUE'];
+                            var id = pages[i]['ID'];
+                            if(id != -1){
+                                //url string
+                                paging += "<span class='page pages' onclick=\"" + value + "\" style='cursor:pointer'><u>" + id + "</u></span>"
+                            }else{
+                                paging += "<span class='pages'>" + value + "</span>";
+                            }
                         }
-                        commentdiv += "</div>";
-                        output += commentdiv;
-                        //star ratings
-
-                        output += "</div>";
-                    } else if (i.substring(0, 'PAGING'.length) === 'PAGING') {
-                        var row = jsonData[i];
-                        paging += "<span>" + row['VALUE'] + "</span>";
                     }
+                    var firstcommset = false;
+                    for (var i in jsonData) {
+                        if (i != 'status' && i != 'paging' && i != 'flag' && i != 'suggest') {
+                            var row = jsonData[i];
+
+                            output += "<h3 class='title'><a href='" + row['ID'] + "' class='suggestion'>" + row['TITLE'] + "</a></h3>" +
+                                    "<div>" +
+    //                                    "<input id='" + row['ID'] + "' type='text' value='" + row['CONTENT'] + "' style='display:none;'/>" +
+                                    "<p class='createdby'>Created by: " + row['USERNAME'] + "</p>" +
+                                    "<p class='rating'>Ratings: " + row['RATING'] + "</p>" +
+                                    "<p class='createddate'>Date Created: " + row['DATE_CREATED'] + "</p>";
+
+                            var commentdiv = "";
+                            if (!firstcommset) {
+                                getComments(row['ID']);
+                                getRoute(row['ID']);
+                                commentdiv = "<div id='" + row['ID'] + "' class='commentlist" + row['ID'] + " activecomment'>";
+                                firstcommset = true;
+                            } else {
+                                commentdiv = "<div id='" + row['ID'] + "' class='commentlist" + row['ID'] + "' style='display:none;'>";
+                            }
+                            commentdiv += "</div>";
+                            output += commentdiv;
+                            //star ratings
+
+                            output += "</div>";
+                        } 
+                    }
+                    output += "</div></div>";
+                    $('#SearchOutput').html(output);
+                    $('#pagingOutput').html(paging);
+                }else if(flag == 2){
+                    
+                    $('#SearchOutput').html(result);
+                    $('#pagingOutput').html('');
+                    $('#routeOutput').html('');
+                    $('#editauth').html('');
+                    $('#routeEditTemplate').html('');
                 }
-                output += "</div></div>";
-                $('#SearchOutput').html(output);
-                $('#pagingOutput').html(paging);
             } catch (err) {
                 $('#SearchOutput').html(result);
+                $('#pagingOutput').html('');
+                $('#routeOutput').html('');
+                $('#editauth').html('');
+                $('#routeEditTemplate').html('');
             }
         }
     }).done(function() {
@@ -167,7 +193,8 @@ function getRoute(sug_id) {
                 $('#routeEdit').html('');
                 $('#routeEditTemplate').html('');
             }
-            $('#routeOutput').html(routestring + editroute);
+            $('#routeOutput').html(routestring);
+            $('#editauth').html(editroute);
         }
     }).done(function() {
         initEditButtons();
@@ -243,9 +270,24 @@ function updateRoute(newroutes){
         url: "findaway/update/",
         data: {sug_id: sug_id, newroutes: newroutes},
         success: function(result) {
-            
+            //update template
+            $('#routeOutput .routedetails').html('');
+            $('#routeEditTemplate .routedetails').html('');
+            $('#routeEdit .routeeditdetails .routedetail').each(function(index,element){
+                var routedetail = $(element).html();  
+                routedetail = "<div class='routedetail'>" + routedetail + "</div>";
+                $('#routeOutput').append(routedetail);
+                $('#routeEditTemplate').append(routedetail);
+                initEditButtons();
+            });
+            alert("Succesfully updated routes.");
         },
-        error: {
+        error: function(result){
+            //restore edit dialog
+            var newroutetemplate = "<div id='newroutediv'>" + $('#newroutediv').html() + "</div>";
+            $('#routeEdit').html($('#routeEditTemplate').html() + newroutetemplate);
+            $(this).dialog("close");
+            alert("Error in udpating routes");
         }
     });
 }
@@ -296,7 +338,6 @@ function getComments(sug_id) {
                 } else {
                     commentstring += "<p>No you can't post a comment. <a href='user/'>Login</a> first</p>";
                 }
-//                commentstring += comments['status']['LOGGED_IN'];
             } catch (err) {
                 commentstring += "</div>";
                 if (comments['status']['LOGGED_IN']) {
@@ -304,11 +345,12 @@ function getComments(sug_id) {
                 } else {
                     commentstring += "<p>No you can't post a comment. <a href='user/'>Login</a> first</p>";
                 }
-//                commentstring += comments['status']['LOGGED_IN'];
             }
             $('#' + sug_id).html(commentstring);
             $('#' + sug_id).slideDown();
-            $(".newcomment").limiter(100, $('#charleft'));
+            if (comments['status']['LOGGED_IN']) {
+                $(".newcomment").limiter(100, $('#charleft'));
+            }
         }
     });
 
@@ -352,7 +394,8 @@ $(function() {
         var from = $("#from").val();
         var to = $("#to").val();
 
-        ajaxComments("findaway/suggestions/", from, to, 0, 4);
+//        ajaxComments("findaway/suggestions/", from, to, 0, 4);
+        ajaxComments(from, to, 0, 4);
 //        ajaxPaging(from,to);
     });
     $(document).on('click', '.movedownbtn', function(event) {
@@ -396,7 +439,7 @@ $(function() {
 
         var newroutedetaildiv = "<div class='routedetail'>" + newroutedetail + "</div>";
 
-        $('#newroutediv').prev().before(newroutedetaildiv);
+        $('#newroutediv').prev().prev().append(newroutedetaildiv);
         initEditButtons();
     });
     $(document).on('keypress', '.newcomment', function(e) {

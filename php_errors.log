@@ -250,3 +250,9 @@
 [21-Feb-2014 15:18:30 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
 [21-Feb-2014 15:18:30 America/Los_Angeles] PHP   4. Post->comment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
 [21-Feb-2014 15:18:30 America/Los_Angeles] PHP   5. Comments_model->addComment() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/post.php:15
+[27-Feb-2014 04:22:38 America/Los_Angeles] PHP Fatal error:  Call to undefined function addCommuteDetail() in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 213
+[27-Feb-2014 04:22:38 America/Los_Angeles] PHP Stack trace:
+[27-Feb-2014 04:22:38 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[27-Feb-2014 04:22:38 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[27-Feb-2014 04:22:38 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[27-Feb-2014 04:22:38 America/Los_Angeles] PHP   4. Findaway->update() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339

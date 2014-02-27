@@ -4,17 +4,17 @@
             parent::__construct();
         }
         
-        public function addCommuteDetail(){
+        public function addCommuteDetail($mode_id,$mode_desc,$t_desc,$fare,$eta){
             $sug_id = $this->input->post('sug_id');
             $nextSeq = $this->_getNextSequence($sug_id);
             $data = array(
                 'SUG_ID'            =>  $sug_id,  
                 'COMMUTE_SEQ'       =>  $nextSeq,
-                'TRANSPOMODE_ID'    =>  $this->input->post('mode_id'),
-                'TRANSPOMODE_DESC'  =>  $this->input->post('mode_desc'),
-                'TRAVEL_DESC'       =>  $this->input->post('t_desc'),
-                'FARE'              =>  $this->input->post('fare'),
-                'ETA'               =>  $this->input->post('eta')
+                'TRANSPOMODE_ID'    =>  $mode_id,
+                'TRANSPOMODE_DESC'  =>  $mode_desc,
+                'TRAVEL_DESC'       =>  $t_desc,
+                'FARE'              =>  $fare,
+                'ETA'               =>  $eta
                 );
             $this->db->insert('COMMUTE_DET',$data);
         }
