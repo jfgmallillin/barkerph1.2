@@ -43,7 +43,7 @@ jQuery.fn.rating = function(url, options) {
         if (i == 0) {
 			if(settings.cancel == true){
 	             var div = '<div class="cancel"><a href="#0" title="Cancel Rating">Cancel Rating</a></div>';
-				 container.append(div);
+//				 container.append(div);
 			}
         } 
 		else {

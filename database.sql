@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Feb 24, 2014 at 07:05 AM
+-- Generation Time: Mar 01, 2014 at 10:23 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.4.9
 
@@ -100,9 +100,11 @@ CREATE TABLE IF NOT EXISTS `commute_det` (
 --
 
 INSERT INTO `commute_det` (`SUG_ID`, `COMMUTE_SEQ`, `TRANSPOMODE_ID`, `TRANSPOMODE_DESC`, `TRAVEL_DESC`, `FARE`, `ETA`) VALUES
-(1, 1, 11, 'Sakay ka', 'hintay ka', 0, 0),
-(1, 2, 12, 'sakay ka ulit', 'hintay ka ulit', 0, 0),
-(1, 3, 13, 'sakay ka ulit ulit', 'hintay ka ulit ulit', 0, 0);
+(5, 1, 11, 'sakay', 'hintay ka', 0, 0),
+(1, 1, 11, 'sakay', 'hintay ka', 0, 0),
+(1, 2, 0, 'wa', 'wa', 0, 0),
+(1, 3, 13, 'hanggang bahay', 'hanggang bahay', 0, 0),
+(8, 1, 0, 'lakd', 'lakad lang', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -229,12 +231,13 @@ CREATE TABLE IF NOT EXISTS `suggestion` (
 --
 
 INSERT INTO `suggestion` (`ID`, `ROUTE_ID`, `USER_ID`, `TITLE`, `DATE_CREATED`, `DATE_EDITED`, `RATING_AVE`, `RATING_COUNT`, `CONTENT`) VALUES
-(1, 1, 1, 'Title 1', '2014-02-15', '0000-00-00', 0, 0, 'Suggestion 1'),
+(1, 1, 1, 'Title tiley2', '2014-02-15', '2014-02-28', 5, 1, 'Suggestion 1'),
 (2, 1, 3, 'Title 2', '2014-02-15', '0000-00-00', 0, 0, 'Suggestion 2'),
 (4, 1, 4, 'Title 4', '2014-02-18', '0000-00-00', 0, 0, 'Suggestion 4'),
 (5, 1, 5, 'Title 5', '2014-02-19', '0000-00-00', 0, 0, 'Suggestion 5'),
 (6, 1, 6, 'Title 6', '2014-02-19', '0000-00-00', 0, 0, 'Suggestion 6'),
-(7, 1, 7, 'Title 7', '2014-02-19', '0000-00-00', 0, 0, 'Suggestion 7');
+(7, 1, 7, 'Title 7', '2014-02-19', '0000-00-00', 0, 0, 'Suggestion 7'),
+(8, 2, 1, 'New Suggestion', '2014-02-28', '0000-00-00', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -300,7 +303,7 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`) VALUES
 (0, 'ANONYMOUS', 'anon@nymous@email.com', '1234'),
 (1, 'jack', 'jack@email.com', 'e10adc3949ba59abbe56e057f20f883e '),
 (3, 'lester', 'lester@email.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(4, 'michelle', 'mich_ren03@yahoo.com', '81dc9bdb52d04dc20036dbd8313ed055'),
+(4, 'michelle', 'mich_ren03@yahoo.com', 'e10adc3949ba59abbe56e057f20f883e '),
 (5, 'tonio', 'tonio@tonio.com', '81dc9bdb52d04dc20036dbd8313ed055'),
 (6, 'mhel', 'mhel@mhel.com', '81dc9bdb52d04dc20036dbd8313ed055'),
 (7, 'kevynn', 'kevs@kevs.com', '81dc9bdb52d04dc20036dbd8313ed055');
