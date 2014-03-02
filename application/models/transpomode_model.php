@@ -4,7 +4,7 @@
             parent::__construct();
         }
         
-        public function addCommuteDetail(){
+        public function addTranspoDetail(){
             $data = array(
                 'NAME'      =>  $this->input->post('name'),
                 'COLOR'     =>  $this->input->post('color')

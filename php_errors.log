@@ -256,3 +256,65 @@
 [27-Feb-2014 04:22:38 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
 [27-Feb-2014 04:22:38 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
 [27-Feb-2014 04:22:38 America/Los_Angeles] PHP   4. Findaway->update() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:23:44 America/Los_Angeles] PHP Fatal error:  Cannot use object of type stdClass as array in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 90
+[01-Mar-2014 17:23:44 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:23:44 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:23:44 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:23:44 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:23:44 America/Los_Angeles] PHP   4. Findaway->rating() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:26:34 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'log_message' (T_STRING) in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:26:34 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:26:34 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:26:34 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:26:36 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'log_message' (T_STRING) in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:26:36 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:26:36 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:26:36 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:26:50 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'log_message' (T_STRING) in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:26:50 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:26:50 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:26:50 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:26:58 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'log_message' (T_STRING) in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:26:58 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:26:58 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:26:58 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:27:16 America/Los_Angeles] PHP Parse error:  syntax error, unexpected 'log_message' (T_STRING) in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:27:17 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:27:17 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:27:17 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:28:59 America/Los_Angeles] PHP Fatal error:  Cannot use object of type stdClass as array in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 90
+[01-Mar-2014 17:28:59 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:28:59 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:28:59 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:28:59 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:28:59 America/Los_Angeles] PHP   4. Findaway->rating() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:31:17 America/Los_Angeles] PHP Fatal error:  Cannot use object of type stdClass as array in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 91
+[01-Mar-2014 17:31:17 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:31:17 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:31:17 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:31:17 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:31:17 America/Los_Angeles] PHP   4. Findaway->rating() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:38:11 America/Los_Angeles] PHP Fatal error:  Cannot use object of type stdClass as array in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:38:11 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:38:11 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:38:11 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:38:11 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:38:11 America/Los_Angeles] PHP   4. Findaway->rating() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:40:53 America/Los_Angeles] PHP Fatal error:  Cannot use object of type stdClass as array in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:40:53 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:40:53 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:40:53 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:40:53 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:40:53 America/Los_Angeles] PHP   4. Findaway->rating() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:52:54 America/Los_Angeles] PHP Fatal error:  Cannot use object of type stdClass as array in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:52:54 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:52:54 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:52:54 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:52:54 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:52:54 America/Los_Angeles] PHP   4. Findaway->rating() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:54:38 America/Los_Angeles] PHP Fatal error:  Cannot use object of type stdClass as array in /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/application/controllers/findaway.php on line 92
+[01-Mar-2014 17:54:38 America/Los_Angeles] PHP Stack trace:
+[01-Mar-2014 17:54:38 America/Los_Angeles] PHP   1. {main}() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:0
+[01-Mar-2014 17:54:38 America/Los_Angeles] PHP   2. require_once() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/index.php:201
+[01-Mar-2014 17:54:38 America/Los_Angeles] PHP   3. call_user_func_array() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339
+[01-Mar-2014 17:54:38 America/Los_Angeles] PHP   4. Findaway->rating() /Users/jack/Library/Containers/com.bitnami.mampstack/Data/app-5_4_9/apache2/htdocs/barkerph1.2/system/core/CodeIgniter.php:339

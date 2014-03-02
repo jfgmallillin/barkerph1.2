@@ -4,8 +4,8 @@
             parent::__construct();
         }
         
-        public function addCommuteDetail($mode_id,$mode_desc,$t_desc,$fare,$eta){
-            $sug_id = $this->input->post('sug_id');
+        public function addCommuteDetail($sug_id,$mode_id,$mode_desc,$t_desc,$fare,$eta){
+//            $sug_id = $this->input->post('sug_id');
             $nextSeq = $this->_getNextSequence($sug_id);
             $data = array(
                 'SUG_ID'            =>  $sug_id,  

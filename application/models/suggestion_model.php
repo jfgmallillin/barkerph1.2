@@ -5,20 +5,42 @@
             parent::__construct();
         }
         
-        public function addSuggestion(){
+        public function addSuggestion($routeid,$newtitle){
             $id = $this->_getNextId();
             $data = array(
                 'ID'            =>  $id,  
-                'ROUTE_ID'      =>  $this->input->post('routeid'),
+                'ROUTE_ID'      =>  $routeid,
                 'USER_ID'       =>  $this->session->userdata('user_id'),
-                'TITLE'         =>  $this->input->post('title'),
+                'TITLE'         =>  $newtitle,
                 'DATE_CREATED'  =>  mdate('%Y-%m-%d', time()),
-                'DATE_EDITED'   =>  null,
+                'DATE_EDITED'   =>  0000-00-00,
                 'RATING_AVE'    =>  0.00,
                 'RATING_COUNT'  =>  0,
-                'CONTENT'       =>  $this->input->post('content')
+                'CONTENT'       =>  ''
                 );
             $this->db->insert('SUGGESTION',$data);
+            log_message('ERROR','addSuggestion, new ID: "' . $id);
+            return $id;
+        }
+        
+        public function updateSuggestion($sug_id,$newtitle){
+            $data = array(
+               'TITLE' => $newtitle,
+               'DATE_EDITED' => mdate('%Y-%m-%d', time())
+            );
+
+            $this->db->where('id', $sug_id);
+            $this->db->update('SUGGESTION', $data);
+        }
+        
+        public function updateRating($sug_id,$newratingave,$newratingcount){
+            $data = array(
+                'RATING_AVE' => $newratingave,
+                'RATING_COUNT' => $newratingcount
+            );
+
+            $this->db->where('id', $sug_id);
+            $this->db->update('SUGGESTION', $data);
         }
         
         public function getAllSuggestions($routeid){
@@ -32,6 +54,9 @@
         
         public function getRouteUser($routeid){
             $userid = $this->session->userdata('user_id');
+            if($userid == ''){
+                $userid = 0;//default/unregistered user
+            }
             return $query = $this->db->query("SELECT * FROM SUGGESTION WHERE ROUTE_ID = " . $routeid . " AND USER_ID = " . $userid);
         }
         
@@ -48,7 +73,20 @@
             if ($query->num_rows() > 0)
             {
                 foreach ($query->result() as $row){
-                    return ($row->ID);
+                    return ($row->USER_ID);
+                }
+            }else{
+                return -1;
+            }
+        }
+        
+        public function getSuggestion($sug_id){
+            $this->db->where('ID',$sug_id);
+            $query = $this->db->get('SUGGESTION');
+            if ($query->num_rows() > 0)
+            {
+                foreach ($query->result() as $row){
+                    return $row;
                 }
             }else{
                 return -1;

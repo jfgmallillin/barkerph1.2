@@ -38,14 +38,15 @@ function ajaxComments(from, to, start, end) {
                     }
                     var firstcommset = false;
                     for (var i in jsonData) {
-                        if (i != 'status' && i != 'paging' && i != 'flag' && i != 'suggest') {
+                        if (i != 'status' && i != 'paging' && i != 'flag' && i != 'suggest' && i != 'modes') {
                             var row = jsonData[i];
 
                             output += "<h3 class='title'><a href='" + row['ID'] + "' class='suggestion'>" + row['TITLE'] + "</a></h3>" +
                                     "<div>" +
     //                                    "<input id='" + row['ID'] + "' type='text' value='" + row['CONTENT'] + "' style='display:none;'/>" +
                                     "<p class='createdby'>Created by: " + row['USERNAME'] + "</p>" +
-                                    "<p class='rating'>Ratings: " + row['RATING'] + "</p>" +
+//                                    "<div id='rating" + row['ID'] + "' class='rating'>Ratings: " + row['RATING'] + "</div>" +
+                                    "<div id='rating" + row['ID'] + "' class='rating'></div>" +
                                     "<p class='createddate'>Date Created: " + row['DATE_CREATED'] + "</p>";
 
                             var commentdiv = "";
@@ -67,13 +68,38 @@ function ajaxComments(from, to, start, end) {
                     output += "</div></div>";
                     $('#SearchOutput').html(output);
                     $('#pagingOutput').html(paging);
+                    //portion to set rating
+                    for (var i in jsonData) {
+                        if (i != 'status' && i != 'paging' && i != 'flag' && i != 'suggest' && i != 'modes') {
+                            var row = jsonData[i];
+                            $('#rating' + row['ID']).rating('findaway/rating/' + row['ID'] + '/', {maxvalue:5, curvalue:row['RATING']});
+                        }
+                    }
                 }else if(flag == 2){
-                    
-                    $('#SearchOutput').html(result);
+                    var outputJSON = jsonData['output'];
+                    var outputString = "<span class='noresult'>" + outputJSON['OUTPUT'] + "</span>";
+                    var suggestJSON = jsonData['suggest'];
+                    var cansuggest = suggestJSON['SUGGEST'];
+                    var suggestString = "";
+                    if(cansuggest){
+                        var modesJSON = jsonData['modes'];
+                        var inputtitlestring = buildInputTitle(-1);
+                        var addroutestring = buildAddRouteString(modesJSON);
+                        var routeeditstring = buildRouteDetailString('routeeditdetails','');
+                        suggestString = "<div class='editrouteauth'><a class='editroute' href='#'>Suggest</a></div>";
+                    }
+                    $('#SearchOutput').html(outputString);
+                    $('#routeEdit').html(inputtitlestring + routeeditstring + addroutestring);
                     $('#pagingOutput').html('');
                     $('#routeOutput').html('');
-                    $('#editauth').html('');
+                    $('#editauth').html(suggestString);
                     $('#routeEditTemplate').html('');
+                    initEditRouteDialog();
+                    initEditButtons();
+                }else if (flag == 3){
+                    for (var i in jsonData) {
+//                        if
+                    }
                 }
             } catch (err) {
                 $('#SearchOutput').html(result);
@@ -98,10 +124,10 @@ function ajaxComments(from, to, start, end) {
     });
 }
 
-function getAddRoute(result) {
+function getAddRoute(travelmodes) {
     var addroutestring = "";
     try {
-        var modes = JSON.parse(result);
+        var modes = JSON.parse(travelmodes);
         var modeoptions = "";
         for (var i in modes) {
             var mode = modes[i];
@@ -148,6 +174,7 @@ function getRoute(sug_id) {
         success: function(result) {
             var routestring = "";
             var routeeditstring = "";
+            var inputtitlestring = "";
             var owner = false;
             var addRouteString = "";
             try {
@@ -172,21 +199,24 @@ function getRoute(sug_id) {
                         routestring += "</div>";
                     }
                 }
-                addRouteString = "<div id='newroutediv'>" + getAddRoute(routes['MODES']) + "</div>";
+                inputtitlestring = buildInputTitle(sug_id);
+                addRouteString = buildAddRouteString(routes['MODES']);
             } catch (err) {
             }
-            var from = $('#from').val();
-            var to = $('#to').val();
-            routestring = "<div class='routedetails'>" + routestring + "</div><div class='fromto'> To: " + to + "</div>";
-            routestring = "<div class='fromto'> From: " + from + "</div>" + routestring;
+//            var from = $('#from').val();
+//            var to = $('#to').val();
+//            routestring = "<div class='routedetails'>" + routestring + "</div><div class='fromto'> To: " + to + "</div>";
+//            routestring = "<div class='fromto'> From: " + from + "</div>" + routestring;
+            routestring = buildRouteDetailString('routedetails',routestring);
 
-            routeeditstring = "<div class='routeeditdetails'>" + routeeditstring + "</div><div class='fromto'> To: " + to + "</div>";
-            routeeditstring = "<div class='fromto'> From: " + from + "</div>" + routeeditstring;
+//            routeeditstring = "<div class='routeeditdetails'>" + routeeditstring + "</div><div class='fromto'> To: " + to + "</div>";
+//            routeeditstring = "<div class='fromto'> From: " + from + "</div>" + routeeditstring;
+            routeeditstring = buildRouteDetailString('routeeditdetails',routeeditstring);
 
             var editroute = "";
             if (owner) {
                 editroute = "<div id='editrouteauth'><a class='editroute' href='#'>Edit</a></div>";
-                $('#routeEdit').html(routeeditstring + addRouteString);
+                $('#routeEdit').html(inputtitlestring + routeeditstring + addRouteString);
                 $('#routeEditTemplate').html(routeeditstring);
             } else {
                 editroute = "<div id='editrouteauth'>You can not edit this!</div>";
@@ -198,24 +228,20 @@ function getRoute(sug_id) {
         }
     }).done(function() {
         initEditButtons();
-        $("a.editroute").on('click', function(event) {
-            event.preventDefault();
-            $("#routeEdit").dialog("open");
-        });
-        $(".newroute").button({
-            icons: {
-                primary: "ui-icon-circle-plus",
-            },
-            text: false
-        });
-        $("#routeEdit").dialog({
+        initEditRouteDialog();
+    });
+}
+function initEditRouteDialog(){
+    $("#routeEdit").dialog({
             autoOpen: false,
             modal: true,
             buttons: {
-                save: function() {
-//                    alert("ok I'll save this.");
-                    
+                save: function() {  
                         var newroutes = [];
+                        var sug_id = $('.routetitle').attr('id');
+                        var newtitle = $('.routetitle').val();
+                        alert('sug_id: ' + sug_id);
+                        alert('rout title: ' + newtitle);
                     $('#routeEdit .routeeditdetails .routedetail').each(function(index,element){
                         var elementclass = $(element).attr('class');
                         var modeid = "";
@@ -250,49 +276,113 @@ function getRoute(sug_id) {
 //                        alert(modeid + " " + modedesc + " " + traveldesc + " " + fare + " " + eta);
                     });
                     alert("Stringify: " + JSON.stringify(newroutes));
-                    updateRoute(newroutes);
+                    updateRoute(newroutes,sug_id,newtitle);
                     $(this).dialog("close");
                 },
                 cancel: function() {
+                    var newtitleinput = "<div id='routetitlediv'>" + $('#routetitlediv').html() + "</div>";
                     var newroutetemplate = "<div id='newroutediv'>" + $('#newroutediv').html() + "</div>";
-                    $('#routeEdit').html($('#routeEditTemplate').html() + newroutetemplate);
+                    $('#routeEdit').html(newtitleinput + $('#routeEditTemplate').html() + newroutetemplate);
                     $(this).dialog("close");
                 }
             }
         });
-    });
 }
-
-function updateRoute(newroutes){
-    var sug_id = $('.activecomment').attr('id');
+function buildInputTitle(sug_id){
+    var inputval = "";
+    if(sug_id != -1){
+        $('a.suggestion').each(function(index,element){
+            if($(element).attr('href') == sug_id){
+                inputval = $(element).text();
+            }
+        });
+    }
+    return "<div id='routetitlediv'><span class='routetitleclass'>Title:</span><input id='" + sug_id + "' class='routetitle' type='text' value='" + inputval + "'/></div>";
+}
+function buildRouteDetailString(classname,routestring){
+    var from = $('#from').val();
+    var to = $('#to').val();
+    routestring = "<div class='" + classname + "'>" + routestring + "</div><div class='fromto'> To: " + to + "</div>";
+    return routestring = "<div class='fromto'> From: " + from + "</div>" + routestring;
+}
+function buildAddRouteString(modes){
+    return "<div id='newroutediv'>" + getAddRoute(modes) + "</div>";
+}
+function updateRoute(newroutes,sug_id,newtitle){
+//    var sug_id = $('.activecomment').attr('id');
+    var from = $('#from').val();
+    var to = $('#to').val();
     $.ajax({
         type: "POST",
         url: "findaway/update/",
-        data: {sug_id: sug_id, newroutes: newroutes},
+        data: {sug_id: sug_id,from: from,to: to, newroutes: newroutes,newtitle: newtitle},
         success: function(result) {
-            //update template
-            $('#routeOutput .routedetails').html('');
-            $('#routeEditTemplate .routedetails').html('');
-            $('#routeEdit .routeeditdetails .routedetail').each(function(index,element){
-                var routedetail = $(element).html();  
-                routedetail = "<div class='routedetail'>" + routedetail + "</div>";
-                $('#routeOutput').append(routedetail);
-                $('#routeEditTemplate').append(routedetail);
-                initEditButtons();
-            });
-            alert("Succesfully updated routes.");
+            if(result == "Success"){
+                //update template
+                $('#routeOutput .routedetails').html('');                     
+                $('#routeEditTemplate .routedetails').html('');
+                $('#routeEdit .routeeditdetails .routedetail').each(function(index,element){
+                    var routedetail = $(element).html();  
+                    routedetail = "<div class='routedetail'>" + routedetail + "</div>";
+                    $('#routeOutput .routedetails').append(routedetail);
+                    $('#routeEditTemplate .routedetails').append(routedetail);
+                    initEditButtons();
+                });
+                $('#routeOutput .routedetails').children().each(function(index,element){
+                    alert('here: ' + index);
+                    $(element).children().each(function(index2,child){
+                        alert('class: ' + $(child).attr('class'));
+                        if($(child).attr('class') == 'moveupdown' || $(child).attr('class') == 'removebtn'){
+                            $(child).remove();
+                        }
+                    });
+                });
+                $('#routeEditTemplate .routedetails').children().each(function(index,element){
+                    alert('here: ' + index);
+                    $(element).children().each(function(index2,child){
+                        alert('class: ' + $(child).attr('class'));
+                        if($(child).attr('class') == 'moveupdown' || $(child).attr('class') == 'removebtn'){
+                            $(child).remove();
+                        }
+                    });
+                });
+                if(sug_id != -1){
+                    $('a.suggestion').each(function(index,element){
+                        if($(element).attr('href') == sug_id){
+                            $(element).text(newtitle);
+                        }
+                    });
+                }else{
+                    var from = $("#from").val();
+                    var to = $("#to").val();
+                    ajaxComments(from, to, 0, 4);
+                }
+                alert(result + " in updating route.");
+            }else{
+                //restore edit dialog
+                var inputtitlediv = "<div id='routetitlediv'>" + $('#routetitlediv').html() + "</div>";
+                var newroutetemplate = "<div id='newroutediv'>" + $('#newroutediv').html() + "</div>";
+                $('#routeEdit').html(inputtitlediv + $('#routeEditTemplate').html() + newroutetemplate);
+                alert(result + " in updating route.");
+            }
         },
         error: function(result){
             //restore edit dialog
+            var inputtitlediv = "<div id='routetitlediv'>" + $('#routetitlediv').html() + "</div>";
             var newroutetemplate = "<div id='newroutediv'>" + $('#newroutediv').html() + "</div>";
-            $('#routeEdit').html($('#routeEditTemplate').html() + newroutetemplate);
-            $(this).dialog("close");
-            alert("Error in udpating routes");
+            $('#routeEdit').html(inputtitlediv + $('#routeEditTemplate').html() + newroutetemplate);
+            alert("Error in updating routes");
         }
     });
 }
 
 function initEditButtons() {
+    $(".newroute").button({
+        icons: {
+            primary: "ui-icon-circle-plus",
+        },
+        text: false
+    });
     $(".moveupbtn").button({
         icons: {
             primary: "ui-icon-carat-1-n",
@@ -425,6 +515,10 @@ $(function() {
     $(document).on('click', '.removeroutebtn', function(event) {
         $(this).parent().parent().remove();
     });
+    $(document).on('click','a.editroute',function(event){
+        event.preventDefault();
+        $("#routeEdit").dialog("open");
+    }); 
     $(document).on('click', '.newroute', function(event) {
         alert('add new route');
         var newmodearr = $('#newmode').val().split("_");
@@ -473,6 +567,10 @@ $(function() {
             });
         }
     });
+//    $(document).on('change',':radio',function(e){
+//        alert($(this).parent().attr('id'));
+//         $('.choice').text( this.value + ' stars' );
+//    });
 });
 
 (function($) {

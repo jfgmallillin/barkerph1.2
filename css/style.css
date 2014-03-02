@@ -118,10 +118,10 @@ clear:both;
 }*/
 
 .checkmark{
-    background-image: url('/images/yes.png');
+    background-image: url('images/yes.png');
 }
 .xmark{
-    background-image: url('/images/no.png');
+    background-image: url('images/no.png');
 }
 
 .ui-autocomplete-loading {  
@@ -172,3 +172,17 @@ clear:both;
     border-radius: 25px;
     padding: 10px;
 }
+
+#leftpanel{    
+    display: inline-block;
+    padding: 10px;
+    width: 25%;
+}
+
+#rightpanel{
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    width: 70%;
+}
+
